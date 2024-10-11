@@ -5,9 +5,11 @@ print('hell')
 
 # Conditional Statements
 a = 10
-if a>4:
+if a > 4:
     print("TRUE")
 else:
     print("FALSE")
-    
+
+b = 3
+print(a + b)
 # Looping Statements
