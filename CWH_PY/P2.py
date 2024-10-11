@@ -33,6 +33,36 @@ print(name[2:7])
 print(name[:7]) # 0 to 7
 print(name[:-3])  # 0 to 13-3 excludes n characters
 print(name[-3:])  # Last 3 characters
-
 nm = "harry"
 print(nm[-4:-2])
+
+# String Methods 
+#  Strings are immutable
+a = "abhishek!! !! !shek"
+print(a.find("sh")) # if not found -1. First Occurance Index
+print(a.index("shhh")) # if not found error. First Occurance Index
+print(a.endswith('000')) # bool value is returned
+print(a.endswith('!!', 5,13)) # bool value is returned
+print(a.startswith('!!', 5,13)) # bool value is returned
+print(a.count('shek'))
+print(a.center(50))
+print(a.capitalize()) # Only 1st letter in caps
+print(a.split(' '))
+# print(a.split('!'))
+print(a.replace("shek", "lash"))
+print(a.rstrip('!'))
+print(a.upper()) # Works on a copy of str
+print(a.lower())
+print(len(a))
+str = 'rohith171801'
+print(str.swapcase())
+print(str.istitle()) # if 1st letter caps returns true
+# str = 'rohith171801\n' 
+print(str.isprintable())
+print(a.islower())
+print(a.isupper())
+print(str.isalpha()) # bool checks alpha 
+print(str.isalnum()) # bool checks alpha numeric
+print(a.isalnum()) # bool
+sp = "      "
+print(sp.isspace())
