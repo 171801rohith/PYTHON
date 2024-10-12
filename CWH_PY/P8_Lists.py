@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # LISTS
 lst = [1, 4, 24, 52, 1, 5, "Bro", True]
 #      0  1  2   3   4  5   6     7
