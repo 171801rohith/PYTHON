@@ -26,6 +26,8 @@ print(lst1)
 # List Methods
 l = [11, 2, 5, 6, 4, 1]
 print(l)
+l.pop()
+l.pop(3)
 l.append(7)
 print(l)
 l.sort()
