@@ -1,3 +1,5 @@
+from inhertence import Car
+
 class Dog:  # Brackets are optional
     # One parameter is compalsory so we use 'self' everytime when we define a Method. Don't ever miss 'self'
 
@@ -22,3 +24,6 @@ dog1.bark()
 dog1.walk("a car wheel")
 dog1.walk()
 print(dog1.noOfLegs)
+
+car = Car()
+car.start_engine()
