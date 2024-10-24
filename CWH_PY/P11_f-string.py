@@ -44,7 +44,6 @@ marks = [20, 30, 40, 29]
 
 for i in range(len(strs)):
     print(f"{strs[i]:<15}:{marks[i]:>4}")
-   
     # System.out.format("%-15s:%4d\n", strs[i], marks[i]);
     
 for i in range(len(strs)):
