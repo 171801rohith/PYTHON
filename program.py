@@ -31,11 +31,11 @@ def store_data(employee):
 
 def show_data(empy:Employee):
     print("------------Employee Details------------")
-    print("Employee Name\t:\t",empy.name)
-    print("Employee Emp_id\t:\t",empy.emp_id)
-    print("Employee Address\t:\t",empy.address.street)
-    print("Employee City\t:\t",empy.address.city)
-    print("Employee Zip_code\t:\t",empy.address.zip_code)
+    print("Employee Name      :",empy.name)
+    print("Employee Emp_id    :",empy.emp_id)
+    print("Employee Address   :",empy.address.street)
+    print("Employee City      :",empy.address.city)
+    print("Employee Zip_code  :",empy.address.zip_code)
 
 
 add = Address(input("Enter your street : "), input("Enter your city : "),input("Enter your zip_code : "))
