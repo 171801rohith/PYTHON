@@ -28,3 +28,25 @@ name2 = "Rohh"
 print(f"{country1} : {name1}")
 print(f"{country2} : {name2}")
 print(f"{{country2}} : {{name2}}")
+
+# public class noth {
+#     public static void main(String[] args) {
+#         String[] strs = { "aadithya", "rohith", "yash", "ramakrishna" };
+#         int[] marks = { 20, 30, 40, 29 };
+#         for (int i = 0; i < strs.length; i++) {
+#             System.out.format("%-15s:%4d\n", strs[i], marks[i]);
+#         }
+#     }
+# }
+
+strs = ["aadithya", "rohith", "yash", "ramakrishna"]
+marks = [20, 30, 40, 29]
+
+for i in range(len(strs)):
+    print(f"{strs[i]:<15}:{marks[i]:>4}")
+   
+    # System.out.format("%-15s:%4d\n", strs[i], marks[i]);
+    
+for i in range(len(strs)):
+    print(f"{strs[i]:>15}:{marks[i]:>4}")
+    # System.out.format("%15s:%4d\n", strs[i], marks[i]);
