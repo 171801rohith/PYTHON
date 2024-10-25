@@ -26,7 +26,7 @@ class Address:
 
 
 class Employee:
-    def __init__(self, name, emp_id, address: Address, basic_salary, role, hra):
+    def __init__(self, name, emp_id, basic_salary, role, hra, address: Address):
         self.name = name
         self.emp_id = emp_id
         self.address = address
@@ -36,9 +36,12 @@ class Employee:
 
 
 class EmployeeReport:
-    def __init__(self, emp:Employee, report_date):
-        self.report_date = report_date
-        self.emp = emp
+    def __init__(self, date):
+        self.report_date = date
+
+    def display_employees(self, emp):
+        show_data(emp)
+        print("Employee ReportDate:", self.report_date)
 
 
 class RoleBuilder:
@@ -51,15 +54,23 @@ class SalaryCalculator:
         pass
 
 
-def store_data(employee: Employee):
-    employee.name = input("Enter your name : ")
-    employee.emp_id = input("Enter your emp_id : ")
-    employee.basic_salary = input("Enter your salary : ")
-    employee.hra = input("Enter your HRA : ")
-    employee.role = input("Enter your role : ")
-    employee.address.street = input("Enter your street : ")
-    employee.address.city = input("Enter your city : ")
-    employee.address.zip_code = input("Enter your zipcode :")
+def store_data():
+    name = input("Enter your name : ")
+    emp_id = input("Enter your emp_id : ")
+    basic_salary = input("Enter your salary : ")
+    hra = input("Enter your HRA : ")
+    role = input("Enter your role : ")
+    address = Address(
+        input("Enter your street : "),
+        input("Enter your city : "),
+        input("Enter your zipcode :"),
+    )
+    employee.append(Employee(name, emp_id, basic_salary, role, hra, address))
+
+
+def addRepotDate():
+    date = input("Enter in DD/MM/YYYY format : ")
+    reportDate.append(EmployeeReport(date))
 
 
 def show_data(empy: Employee):
@@ -73,16 +84,17 @@ def show_data(empy: Employee):
     print("Employee Zip_code  :", empy.address.zip_code)
 
 
-add = Address("", "", "")
+employee = []
+reportDate = []
+numberOfEmployess = int(input("Enter number of Employess : "))
 
-emp = [Employee("", "", add, "", "", "")] * 4
+for i in range(numberOfEmployess):
+    print(f"------------------Enetr Employee {i + 1} Details---------------")
+    store_data()
+    addRepotDate()
 
-for i in range(4):
-    store_data(emp[i])
 
-for i in range(4):
-    pass
-
-for i in range(4):
-    print(f"------------Employee Details{i+1}------------")
-    show_data(emp[i])
+for i in range(numberOfEmployess):
+    print(f"------------------Employee {i + 1} Details---------------")
+    # show_data(employee[i])
+    reportDate[i].display_employees(employee[i])
