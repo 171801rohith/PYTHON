@@ -89,12 +89,11 @@ reportDate = []
 numberOfEmployess = int(input("Enter number of Employess : "))
 
 for i in range(numberOfEmployess):
-    print(f"------------------Enetr Employee {i + 1} Details---------------")
+    print(f"------------------Enter Employee {i + 1} Details---------------")
     store_data()
     addRepotDate()
 
 
 for i in range(numberOfEmployess):
     print(f"------------------Employee {i + 1} Details---------------")
-    # show_data(employee[i])
     reportDate[i].display_employees(employee[i])
