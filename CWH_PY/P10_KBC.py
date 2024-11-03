@@ -1,23 +1,31 @@
 # Create a list to store questions and correct answers
 # Display the amount won
 
-questions = ["20 * 9", "Iron Man alias", "Deadpool release year", "Google CEO"]
+ques_ans = {
+    "20 * 9": "180",
+    "Iron Man alias": "TONY STARK",
+    "Deadpool release year": "2017",
+    "Google CEO": "Sunder Pichai",
+}
+
 option = [
     ["100", "180", "287"],
     ["TONY STARK", "THOR", "STEVE ROGERS"],
     ["2024", "2016", "2017"],
-    ["Sunder Pichai", "Mukesh Ambani", "Bill Gates"]
+    ["Sunder Pichai", "Mukesh Ambani", "Bill Gates"],
 ]
-answer = ["180", "TONY STARK", "2017", "Sunder Pichai"]
+
 winCount = 0
-for i in range(len(questions)):
-    print(i + 1, ") ", questions[i], sep="")
+i = 0
+for key in ques_ans:
+    print(i + 1, ") ", key, sep="")
     for j in range(0, len(option[i])):
         print(j + 1, ": ", option[i][j], sep="", end="       ")
     print()
     userOp = int(input("Enter your option : "))
-    userAns = option[i][userOp-1]
-    if userAns in answer:
+    userAns = option[i][userOp - 1]
+    if userAns == ques_ans[key]:
+        i += 1
         winCount += 1
     else:
         break
