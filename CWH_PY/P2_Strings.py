@@ -66,3 +66,4 @@ print(str.isalnum()) # bool checks alpha numeric
 print(a.isalnum()) # bool
 sp = "      "
 print(sp.isspace())
+print(sp[::-1]) # Reverse a string
