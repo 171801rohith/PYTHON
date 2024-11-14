@@ -1,0 +1,4 @@
+account_number	amount	transaction_type	datetime	to_account_number
+123	1234	deposit	20 - 13 - 65	986
+13	1664	weposit	2 - 13 - 65	976
+12376	12334	transfer	20 - 3 - 65	876
