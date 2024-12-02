@@ -1,0 +1,9 @@
+[
+  {
+    "account_number": 12345,
+    "amount": 100.0,
+    "transaction_type": "deposit",
+    "date": "2024-11-21T15:22:55.898733",
+    "to_account_number": null
+  }
+]

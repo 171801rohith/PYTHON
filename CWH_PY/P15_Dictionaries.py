@@ -32,3 +32,14 @@ dic2 = {421: 921, 9: 42321}
 # dic1.popitem() # Pops last item
 del dic1[901]
 print(dic1)
+
+dic1 = [
+    {"transaction_type": "C++", 17: "Java", 42: "Python"},
+    {"transaction_type": "C++", 17: "Java", 42: "Python", "JavaScript": 5},
+]
+
+type = "Java"
+
+for line in dic1:
+    if line["transaction_type"] == type:
+        print(line["transaction_type"])
