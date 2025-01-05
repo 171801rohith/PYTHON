@@ -11,7 +11,9 @@ def check_winner(user, computer):
 
 while True:
     user = int(input("Enter your choice:    1. Snake     2. Water    3. Gun   4. Exit : "))
-    computer = int(random.uniform(1, 4))
+    # computer = int(random.uniform(1, 4))
+                #  OR
+    computer = random.randint(1, 3)
     if user == 4:
         print("Exiting.....")
         break
