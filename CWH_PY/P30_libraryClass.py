@@ -12,6 +12,7 @@ class Library:
 
     def displayBooks(self):
         if len(self.books) == self.no_of_books:
+            print(f"Library has {self.no_of_books} books")
             return self.books
         elif self.no_of_books == 0:
             return "No books were added"
@@ -22,5 +23,8 @@ class Library:
 lib = Library()
 lib.addbook("Hello, JAVA!")
 lib.addbook("Python Goes Wild")
+lib.addbook("Wild JS")
+lib.addbook("Mean MERN")
+lib.addbook("C# kills JavaScript")
 print("Books:", lib.displayBooks())
 
