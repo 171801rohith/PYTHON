@@ -15,7 +15,8 @@ class Programmer(Employee):
         super().__init__(name, id)
         self.language = language
 
-    def showLanguage(self):
+    def showDetails(self):
+        super().showDetails()
         print(f"Language is {self.language}")
 
 
@@ -24,11 +25,10 @@ e.showDetails()
 
 p = Programmer("Anthony Das", 420, "JAVA")
 p.showDetails()
-p.showLanguage()
 
 p1 = Programmer("Das", 420)
 p1.showDetails()
-p1.showLanguage()
+
 
 
 # Access Specifiers
