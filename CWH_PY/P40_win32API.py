@@ -15,6 +15,7 @@ class ShoutOut:
     def pronounce(self):
         for name in names:
             shoutout = f"Shoutout to {name}"
+            print(shoutout)
             self.speaker.speak(shoutout)
 
 
