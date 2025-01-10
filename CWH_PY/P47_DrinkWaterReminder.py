@@ -1,18 +1,19 @@
 import win32com.client as win32
 import time
+from win10toast import ToastNotifier
 
-def speak_out():
+
+def speak_out(name):
+    toast = ToastNotifier()
     speaker = win32.Dispatch("SAPI.Spvoice")
     while True:
-        min = int(time.strftime("%M", time.localtime()))
-        print(min)
-        if min == 59:
-            print("Hello")
-            speaker.speak("It's time to drink water.")
-            time.sleep(1)
-        time.sleep(0.5) 
+        toast.show_toast(
+            "Python Reminder",
+            f"Hey {name}, It's time to drink water.",
+            duration=3,
+            icon_path=None,
+        )
+        speaker.speak(f"It's time to drink water {name}.")
+        time.sleep(60 * 60)
 
-
-speak_out()
-
- 
+speak_out("Rohith")
