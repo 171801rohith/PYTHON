@@ -1,6 +1,5 @@
 # Display Notifications
 
-import os
 from win10toast import ToastNotifier
 
 toast = ToastNotifier()
