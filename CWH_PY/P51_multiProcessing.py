@@ -16,7 +16,7 @@ if __name__ == "__main__":
     url = "https://picsum.photos/200/300"
     pros = []
 
-    for i in range(3):
+    for i in range(15):
         # Takes 7 business days to complete
         # download(url, i)
 
@@ -29,8 +29,8 @@ if __name__ == "__main__":
         pro.join()
 
     with ProcessPoolExecutor() as executor:
-        l1 = [url for i in range(3)]
-        l2 = [i for i in range(3)]
+        l1 = [url for i in range(15)]
+        l2 = [i for i in range(15)]
         results = executor.map(download, l1, l2)
         for result in results:
             print(result)
