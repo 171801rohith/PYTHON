@@ -32,3 +32,23 @@ def multi(a, b):
 
 multi(4,5)
 
+
+class Example:
+    def __init__(self, val):
+        self._x = val
+
+    @property
+    def x(self):
+        return self._x
+    
+    @x.setter
+    def shek(self, value):
+        self._x = value
+
+ob = Example(10)
+print(ob._x)
+# print(ob.x()) # Error
+print(ob.x)
+
+ob.shek = 20
+print(ob.x)

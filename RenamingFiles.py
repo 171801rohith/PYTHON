@@ -1,6 +1,6 @@
 import os
 
-path = r"R:\MOVIES\DAIMA"
+path = r"R:\MOVIES\YOUR FRIENDLY NEIGHBORHOOD SPIDERMAN"
 
 episodes = os.listdir(path)
 
