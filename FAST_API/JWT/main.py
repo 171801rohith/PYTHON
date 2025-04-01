@@ -8,14 +8,14 @@ from passlib.context import CryptContext
 
 SECRET_KEY = "a15562c29b56413d12dab4a85835f98445a30aecd9bb85ec3112e63d457c1a28"
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINTUES = 15
+ACCESS_TOKEN_EXPIRE_MINUTES = 15
 
-fake_db = {
+db = {
     "tim": {
         "username": "tim",
         "age": 16,
         "email": "tim@mail.net",
-        "hashed_password": "",
+        "hashed_password": "$2b$12$IhEFUU/rIvYJNkKkkl58P.vkLyQPIEpFD8H1OnGZhMsHVy9NlmUWS",
         "disabled": False,
     }
 }
@@ -33,12 +33,12 @@ class TokenData(BaseModel):
 class User(BaseModel):
     username: str
     email: Optional[str] = None
-    age: Optional[str] = None
+    age: Optional[int] = None
     disabled: Optional[bool] = None
 
 
 class userInDB(User):
-    hasehed_password: str
+    hashed_password: str
 
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -65,7 +65,7 @@ def authenticate_user(db, username: str, pwd: str):
     user = get_user(db, username)
     if not user:
         return False
-    if not verify_password(pwd, user.hasehed_password):
+    if not verify_password(pwd, user.hashed_password):
         return False
 
     return user
@@ -92,7 +92,7 @@ async def get_current_user(token: str = Depends(oauth_2_schema)):
     )
 
     try:
-        payload = jwt.decode(token, algorithms=[ALGORITHM])
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
         if not username:
             raise credential_exception
@@ -108,7 +108,7 @@ async def get_current_user(token: str = Depends(oauth_2_schema)):
     return user
 
 
-async def get_current_active_user(current_user: str = Depends(get_current_user)):
+async def get_current_active_user(current_user: User = Depends(get_current_user)):
     if current_user.disabled:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, detail="Inactive User"
@@ -117,5 +117,30 @@ async def get_current_active_user(current_user: str = Depends(get_current_user))
 
 
 @app.post("/token", response_model=Token)
-async def login_for_access_token(form_data=OAuth2PasswordRequestForm):
-    pass
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
+    user = authenticate_user(db, form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token = create_access_token(
+        data={"sub": user.username}, expires_delta=access_token_expires
+    )
+    return {"access_token": access_token, "token_type": "bearer"}
+
+
+@app.get("/user/me/", response_model=User)
+async def read_user_me(current_user: User = Depends(get_current_active_user)):
+    return current_user
+
+
+@app.get("/user/me/items")
+async def read_user_items(current_user: User = Depends(get_current_active_user)):
+    return [{"item_id": 1, "owner": current_user}]
+
+
+print(generate_hashed_password("shek"))
