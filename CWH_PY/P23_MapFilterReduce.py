@@ -25,5 +25,5 @@ nl = list(filter(filter_func, l))
 print(nl)
 
 # REDUCE
-sum = reduce(lambda x, y: x + y, l)
+sum = reduce(lambda x, y: x - y, l)
 print(sum)
