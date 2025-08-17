@@ -1,12 +1,17 @@
 from sqlalchemy.engine import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy import Column, Integer, String
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
-postgres_URL = "postgresql://postgres:diwa123@localhost:5432/PopulateEx"
+postgres_URL = os.getenv("DB_URL")
 engine = create_engine(postgres_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
+
 
 class Heros(Base):
     __tablename__ = "heros"
