@@ -1,6 +1,6 @@
 import os
 
-path = r"R:/MOVIES/test"
+path = r"R:/MOVIES/camera"
 
 episodes = os.listdir(path)
 

@@ -1,0 +1,48 @@
+{
+    "kind": "youtube#channelListResponse",
+    "etag": "XqQtaWI061TqpzM97D7wpwzlSzs",
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 5
+    },
+    "items": [
+        {
+            "kind": "youtube#channel",
+            "etag": "LfTqKd0FzHBp3qv6YkJ5xrsSMfU",
+            "id": "UCJroPv1EkUsXQlPPk7UyEMg",
+            "snippet": {
+                "title": "Aadithya Nayak",
+                "description": "",
+                "customUrl": "@aadithyanayak4030",
+                "publishedAt": "2019-04-05T19:22:07Z",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://yt3.ggpht.com/ytc/AIdro_kX5PJ0GnBolc3FMBD5M8_yalHpP2PqChNyrlvYwx0=s88-c-k-c0x00ffffff-no-rj",
+                        "width": 88,
+                        "height": 88
+                    },
+                    "medium": {
+                        "url": "https://yt3.ggpht.com/ytc/AIdro_kX5PJ0GnBolc3FMBD5M8_yalHpP2PqChNyrlvYwx0=s240-c-k-c0x00ffffff-no-rj",
+                        "width": 240,
+                        "height": 240
+                    },
+                    "high": {
+                        "url": "https://yt3.ggpht.com/ytc/AIdro_kX5PJ0GnBolc3FMBD5M8_yalHpP2PqChNyrlvYwx0=s800-c-k-c0x00ffffff-no-rj",
+                        "width": 800,
+                        "height": 800
+                    }
+                },
+                "localized": {
+                    "title": "Aadithya Nayak",
+                    "description": ""
+                }
+            },
+            "statistics": {
+                "viewCount": "0",
+                "subscriberCount": "2",
+                "hiddenSubscriberCount": false,
+                "videoCount": "0"
+            }
+        }
+    ]
+}
